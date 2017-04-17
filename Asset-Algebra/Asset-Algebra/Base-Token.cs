@@ -10,6 +10,7 @@ namespace Asset_Algebra
     {
         public string address;    // Base token issuer address
         public string description;    // Description e.g. ''Pay bearer one USD''
-        public string hash;     // Hash of legal text defining Token.
+        public string hash; // Hash of legal text defining Token.
+        public int silly_int; // comment on silly int.
     }
 }
