@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Asset_Algebra
 {
-    class Base_Token
+    [Serializable]
+    public class Base_Token:Token
     {
         public string address;    // Base token issuer address
         public string description;    // Description e.g. ''Pay bearer one USD''

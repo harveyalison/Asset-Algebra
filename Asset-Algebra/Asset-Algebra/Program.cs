@@ -18,6 +18,20 @@ namespace Asset_Algebra
             my_token.hash = "some hash";
             my_token.silly_int = 5;
 
+            Function_Token ft = new Function_Token();
+            List_Token lt = new List_Token();
+
+            lt.tokens.Add(my_token);
+
+            List_Token lt2 = new List_Token();
+
+
+            List<Token> tokens = new List<Token> { my_token, my_token, my_token, my_token};
+
+            lt2.tokens.AddRange(tokens);
+
+            Serialization_Helper.SerializeObject(lt2, "myserializedobject.xml");
+            
             Console.WriteLine("Token address: " + my_token.address);
             Console.WriteLine("Token description: " + my_token.description);
             Console.WriteLine("Token hash: " + my_token.hash);
