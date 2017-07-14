@@ -18,10 +18,9 @@ namespace Asset_Algebra
             my_token.hash = "some hash";
             my_token.silly_int = 5;
 
-            Function_Token ft = new Function_Token();
-            List_Token lt = new List_Token();
+            List_Token lt1 = new List_Token();
 
-            lt.tokens.Add(my_token);
+            lt1.tokens.Add(my_token);
 
             List_Token lt2 = new List_Token();
 
@@ -30,8 +29,31 @@ namespace Asset_Algebra
 
             lt2.tokens.AddRange(tokens);
 
-            Serialization_Helper.SerializeObject(lt2, "myserializedobject.xml");
-            
+            Function_Token ft = new Function_Token();
+            ft.datetime = new DateTime(2016,3,24);
+
+            ft.token = lt1;
+
+            List_Token lt3 = new List_Token();
+
+            lt3.tokens.Add(ft);
+            lt3.tokens.Add(lt1);
+
+            Serialization_Helper.SerializeObject(my_token, "mytoken.xml");
+
+
+            Serialization_Helper.SerializeObject(lt1, "myserializedobject1.xml");
+
+            Serialization_Helper.SerializeObject(lt2, "myserializedobject2.xml");
+
+            Serialization_Helper.SerializeObject(lt3, "myserializedobject3.xml");
+
+            var newobj = Serialization_Helper.DeSerializeObject<List_Token>("myserializedobject3.xml");
+
+            Console.WriteLine("First entry: " + newobj.tokens.Count);
+
+
+
             Console.WriteLine("Token address: " + my_token.address);
             Console.WriteLine("Token description: " + my_token.description);
             Console.WriteLine("Token hash: " + my_token.hash);
